@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio – Tema Pemandangan</title>
+  <!-- Tailwind v4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial; }
+    /* Ilustrasi pemandangan SVG sebagai background */
+    .scene-bg { 
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #dbeafe 0%, #e0f2fe 45%, #f0fdfa 100%);
+    }
+    .scene-bg::before {
+      content: "";
+      position: absolute; inset: -10% -10% auto -10%; height: 70%;
+      background: radial-gradient(1200px 400px at 20% 20%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 60%);
+      pointer-events:none;
+    }
+    .mountains {
+      position:absolute; inset:auto 0 0 0; height: 55%;
+      background: url('data:image/svg+xml;utf8,\
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600">\
+        <defs>\
+          <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">\
+            <stop offset="0%" stop-color="#93c5fd"/>\
+            <stop offset="100%" stop-color="#60a5fa"/>\
+          </linearGradient>\
+          <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1">\
+            <stop offset="0%" stop-color="#86efac"/>\
+            <stop offset="100%" stop-color="#34d399"/>\
+          </linearGradient>\
+        </defs>\
+        <path d="M0 420 L200 300 L360 380 L520 280 L700 360 L880 260 L1040 340 L1240 260 L1440 360 L1440 600 L0 600 Z" fill="url(%23g1)" opacity=".9"/>\
+        <path d="M0 480 L160 380 L320 420 L520 340 L700 420 L900 320 L1100 420 L1240 360 L1440 440 L1440 600 L0 600 Z" fill="url(%23g2)" opacity=".85"/>\
+        <circle cx="180" cy="120" r="50" fill="%23fde68a" opacity="0.9"/>\
+      </svg>') bottom center / cover no-repeat;
+      pointer-events:none;
+    }
+    .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,0.65); }
+  </style>
+</head>
+<body class="text-slate-800 bg-white">
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50">
+    <nav class="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+      <div class="mt-4 mb-4 flex items-center justify-between rounded-2xl border border-slate-200/70 bg-white/80 backdrop-blur px-4 py-3 shadow-sm">
+        <a href="#home" class="flex items-center gap-2 font-bold tracking-wide"><span class="inline-block h-8 w-8 rounded-full bg-sky-500"></span> GAVIN</a>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl border border-slate-200 px-3 py-2 text-sm">Menu</button>
+        <ul id="menu" class="hidden md:flex items-center gap-6 text-sm">
+          <li><a class="hover:text-sky-600" href="#home">Home</a></li>
+          <li><a class="hover:text-sky-600" href="#about">About</a></li>
+          <li><a class="hover:text-sky-600" href="#blog">Blog</a></li>
+          <li><a class="hover:text-sky-600" href="#testi">Testimonial</a></li>
+          <li><a class="hover:text-sky-600" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <ul id="mobileMenu" class="md:hidden hidden flex-col gap-3 rounded-2xl border border-slate-200 bg-white/90 p-4 text-sm shadow">
+        <li><a class="block rounded-lg px-3 py-2 hover:bg-slate-100" href="#home">Home</a></li>
+        <li><a class="block rounded-lg px-3 py-2 hover:bg-slate-100" href="#about">About</a></li>
+        <li><a class="block rounded-lg px-3 py-2 hover:bg-slate-100" href="#blog">Blog</a></li>
+        <li><a class="block rounded-lg px-3 py-2 hover:bg-slate-100" href="#testi">Testimonial</a></li>
+        <li><a class="block rounded-lg px-3 py-2 hover:bg-slate-100" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="scene-bg relative pt-36">
+    <div class="mountains"></div>
+    <div class="relative mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center py-20">
+        <div class="glass rounded-3xl p-6 md:p-8 shadow-lg">
+          <span class="inline-flex items-center gap-2 rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700">🌅 Tema Pemandangan</span>
+          <h1 class="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight text-slate-800">Halo, saya <span class="text-sky-600">Gavin</span>. Front‑end & UI Enthusiast.</h1>
+          <p class="mt-4 text-slate-600">Membangun website cepat, indah, dan responsif. Fokus pada pengalaman pengguna dengan sentuhan visual bernuansa alam.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#contact" class="rounded-2xl bg-sky-600 px-5 py-3 text-white shadow hover:bg-sky-700">Hubungi Saya</a>
+            <a href="#portfolio" class="rounded-2xl border border-slate-300 px-5 py-3 hover:bg-white/60">Lihat Karya</a>
+          </div>
+          <div class="mt-6 flex items-center gap-6 text-xs text-slate-500">
+            <div class="flex items-center gap-2"><span class="i-shield w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Clean Code</div>
+            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span> Tailwind CSS</div>
+            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> Responsive</div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="mx-auto aspect-[4/3] w-full max-w-xl overflow-hidden rounded-3xl border border-slate-200 bg-white/70 p-3 shadow-lg">
+            <div class="h-full w-full rounded-2xl bg-gradient-to-tr from-sky-200 via-emerald-100 to-white p-3">
+              <!-- Mockup Card -->
+              <div class="grid h-full place-items-center rounded-xl border border-slate-200 bg-white p-6 shadow">
+                <div class="text-center">
+                  <div class="mx-auto mb-3 h-16 w-16 rounded-full bg-gradient-to-br from-amber-300 to-pink-300"></div>
+                  <p class="text-sm text-slate-500">Preview komponen</p>
+                  <h3 class="text-xl font-semibold">Landing Page Natural</h3>
+                  <p class="mt-2 text-slate-500">Warna lembut, bentuk organik, dan nuansa pegunungan.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Aksen awan -->
+          <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/70 blur-2xl"></div>
+          <div class="absolute -left-6 top-20 h-24 w-24 rounded-full bg-white/70 blur-2xl"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="relative -mt-8 bg-gradient-to-b from-white to-emerald-50 py-20">
+    <div class="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+      <div class="grid gap-10 md:grid-cols-2 items-center">
+        <div class="order-2 md:order-1">
+          <h2 class="text-3xl md:text-4xl font-bold">Tentang Saya</h2>
+          <p class="mt-4 text-slate-600">Saya developer yang suka eksplorasi desain terinspirasi alam: gunung, awan, danau. Saya mengutamakan aksesibilitas, performa, dan detail visual. Stack utama: Tailwind, React, dan sedikit animasi ringan.</p>
+          <div class="mt-6 grid grid-cols-2 gap-4 text-sm">
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><span class="block text-2xl font-bold text-sky-600">1 bln</span> Tahun pengalaman</div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><span class="block text-2xl font-bold text-sky-600">9+</span> Proyek selesai</div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><span class="block text-2xl font-bold text-sky-600">40%</span> Remote ready</div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><span class="block text-2xl font-bold text-sky-600">b+</span> Skor Lighthouse</div>
+          </div>
+        </div>
+        <div class="order-1 md:order-2">
+          <div class="relative">
+            <div class="absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-br from-sky-200 to-emerald-200 blur-xl"></div>
+            <img class="w-full rounded-3xl border border-slate-200 shadow-lg" alt="Foto/ilustrasi" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio / Blog -->
+  <section id="blog" class="bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+      <div class="mb-10 flex items-end justify-between">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold">Blog & Proyek</h2>
+          <p class="mt-2 text-slate-600">Tulisan ringkas dan studi kasus terbaru.</p>
+        </div>
+        <a href="#" class="hidden md:inline-flex rounded-xl border border-slate-200 px-4 py-2 text-sm hover:bg-slate-50">Lihat semua</a>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Card 1 -->
+        <article class="group rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+          <a href="#" class="block">
+            <img class="aspect-video w-full rounded-t-3xl object-cover" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Gunung"/>
+            <div class="p-5">
+              <span class="text-xs font-semibold text-emerald-600">Case Study</span>
+              <h3 class="mt-2 text-xl font-semibold group-hover:text-sky-600">Optimasi Landing Page Travel</h3>
+              <p class="mt-2 line-clamp-3 text-sm text-slate-600">Bagaimana saya menurunkan LCP 42% sekaligus mempertahankan tampilan natural bertema pegunungan.</p>
+            </div>
+          </a>
+        </article>
+        <!-- Card 2 -->
+        <article class="group rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+          <a href="#" class="block">
+            <img class="aspect-video w-full rounded-t-3xl object-cover" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop" alt="Pantai"/>
+            <div class="p-5">
+              <span class="text-xs font-semibold text-sky-600">Artikel</span>
+              <h3 class="mt-2 text-xl font-semibold group-hover:text-sky-600">Tailwind untuk Tema Alam</h3>
+              <p class="mt-2 line-clamp-3 text-sm text-slate-600">Tips sistem warna lembut, gradien, dan spacing supaya UI tetap segar seperti udara pagi.</p>
+            </div>
+          </a>
+        </article>
+        <!-- Card 3 -->
+        <article class="group rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+          <a href="#" class="block">
+            <img class="aspect-video w-full rounded-t-3xl object-cover" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop" alt="Hutan"/>
+            <div class="p-5">
+              <span class="text-xs font-semibold text-amber-600">Tutorial</span>
+              <h3 class="mt-2 text-xl font-semibold group-hover:text-sky-600">Membuat Ilustrasi SVG Pegunungan</h3>
+              <p class="mt-2 line-clamp-3 text-sm text-slate-600">Langkah-langkah membuat background pemandangan ringan tanpa gambar berat.</p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section id="testi" class="bg-gradient-to-b from-emerald-50 to-sky-50 py-20">
+    <div class="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold">Apa Kata Klien</h2>
+        <p class="mt-2 text-slate-600">Beberapa testimoni dari proyek terakhir.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <!-- T 1 -->
+        <figure class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div class="mb-4 flex items-center gap-3">
+            <img class="h-10 w-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=400&auto=format&fit=crop" alt="Client"/>
+            <figcaption>
+              <div class="font-semibold">Dewi Larasati</div>
+              <div class="text-xs text-slate-500">CMO, Wander Co.</div>
+            </figcaption>
+          </div>
+          <blockquote class="text-slate-600">“Desainnya sejuk, performanya kencang. KPI naik signifikan.”</blockquote>
+        </figure>
+        <!-- T 2 -->
+        <figure class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div class="mb-4 flex items-center gap-3">
+            <img class="h-10 w-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2?q=80&w=400&auto=format&fit=crop" alt="Client"/>
+            <figcaption>
+              <div class="font-semibold">Rama Putra</div>
+              <div class="text-xs text-slate-500">Founder, GreenTrail</div>
+            </figcaption>
+          </div>
+          <blockquote class="text-slate-600">“Kolaborasi mulus. UI terasa natural dan berbeda dari kompetitor.”</blockquote>
+        </figure>
+        <!-- T 3 -->
+        <figure class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div class="mb-4 flex items-center gap-3">
+            <img class="h-10 w-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop" alt="Client"/>
+            <figcaption>
+              <div class="font-semibold">Sari Pramesti</div>
+              <div class="text-xs text-slate-500">PM, Seaside Apps</div>
+            </figcaption>
+          </div>
+          <blockquote class="text-slate-600">“Detail kecilnya bikin feel brand kami hidup. Recommended!”</blockquote>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="relative bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+      <div class="grid gap-10 md:grid-cols-2">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold">Kontak Saya</h2>
+          <p class="mt-2 text-slate-600">Punya ide proyek atau kolaborasi? Kirim pesan—saya akan balas secepatnya.</p>
+          <div class="mt-6 space-y-3 text-slate-600">
+            <div class="flex items-center gap-3"><span class="inline-block h-8 w-8 rounded-xl bg-sky-100"></span> karawang,indonesia</div>
+            <div class="flex items-center gap-3"><span class="inline-block h-8 w-8 rounded-xl bg-emerald-100"></span> gavinalrizwan@gmail.com</div>
+            <div class="flex items-center gap-3"><span class="inline-block h-8 w-8 rounded-xl bg-amber-100"></span> @GANZZ</div>
+          </div>
+        </div>
+        <form class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div class="grid gap-4">
+            <div>
+              <label class="text-sm text-slate-600">Nama</label>
+              <input type="text" class="mt-1 w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none focus:border-sky-500" placeholder="Nama lengkap"/>
+            </div>
+            <div>
+              <label class="text-sm text-slate-600">Email</label>
+              <input type="email" class="mt-1 w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none focus:border-sky-500" placeholder="email@domain.com"/>
+            </div>
+            <div>
+              <label class="text-sm text-slate-600">Pesan</label>
+              <textarea rows="5" class="mt-1 w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none focus:border-sky-500" placeholder="Ceritakan kebutuhanmu..."></textarea>
+            </div>
+            <button type="submit" class="rounded-2xl bg-emerald-600 px-5 py-3 font-semibold text-white hover:bg-emerald-700">Kirim Pesan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-t from-slate-900 to-slate-800 text-slate-200">
+    <div class="mx-auto max-w-7xl px-4 md:px-6 lg:px-8 py-14">
+      <div class="grid gap-8 md:grid-cols-4">
+        <div>
+          <div class="mb-3 flex items-center gap-2 font-bold tracking-wide"><span class="inline-block h-8 w-8 rounded-full bg-sky-500"></span> GAVIN</div>
+          <p class="text-slate-400">Portfolio bertema pemandangan. Dibangun dengan Tailwind CSS.</p>
+        </div>
+        <div>
+          <div class="mb-3 font-semibold">Menu</div>
+          <ul class="space-y-2 text-slate-400">
+            <li><a class="hover:text-white" href="#home">Home</a></li>
+            <li><a class="hover:text-white" href="#about">About</a></li>
+            <li><a class="hover:text-white" href="#blog">Blog</a></li>
+            <li><a class="hover:text-white" href="#testi">Testimonial</a></li>
+            <li><a class="hover:text-white" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="mb-3 font-semibold">Teknologi</div>
+          <ul class="space-y-2 text-slate-400">
+            <li>Tailwind CSS</li>
+            <li>HTML5</li>
+            <li>Aksesibilitas</li>
+            <li>Performance</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mb-3 font-semibold">Newsletter</div>
+          <form class="flex gap-2">
+            <input type="email" class="w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-slate-100 placeholder-slate-400 focus:border-sky-500" placeholder="Alamat email"/>
+            <button class="rounded-xl bg-sky-500 px-4 py-3 font-semibold text-slate-900 hover:bg-sky-400">Daftar</button>
+          </form>
+        </div>
+      </div>
+      <div class="mt-10 flex flex-col items-center justify-between gap-4 border-t border-slate-700 pt-6 text-sm text-slate-400 md:flex-row">
+        <p>© <span id="year"></span> Gavin. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-white">Instagram</a>
+          <a href="#" class="hover:text-white">Dribbble</a>
+          <a href="#" class="hover:text-white">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="toTop" class="fixed bottom-5 right-5 hidden rounded-full bg-sky-600 p-3 text-white shadow-lg hover:bg-sky-700" aria-label="Kembali ke atas">▲</button>
+
+  <script>
+    // Tahun berjalan di footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menu = document.getElementById('menu');
+    menuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Back to top
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 600) { toTop.classList.remove('hidden'); } else { toTop.classList.add('hidden'); }
+    });
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>
